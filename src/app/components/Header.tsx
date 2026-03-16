@@ -10,23 +10,21 @@ import { Genre } from "@/lib/getGenres";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { TbMovie } from "react-icons/tb";
 import { fetchedUtils } from "@/utils/fetcher";
+
 type Props = {
   genres: Genre[];
 };
-
 export const Header = ({ genres }: Props) => {
   const [searchValue, setSearchValue] = useState("");
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [mobileGenreOpen, setMobileGenreOpen] = useState(false);
 
-  const { data, isLoading, error } = useSWR(
+  const { data, isLoading } = useSWR(
     `${process.env.TMDB_BASE_URL}/search/movie?query=${searchValue}&language=en-US&page=1`,
     fetchedUtils,
   );
-  console.log(data);
   const searchData = data?.results || [];
-  console.log(searchData);
-
+  console.log(data);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
@@ -53,10 +51,10 @@ export const Header = ({ genres }: Props) => {
               placeholder="Search..."
               value={searchValue}
               onChange={handleChange}
-              className="w-full outline-none "
+              className="w-full outline-none"
             />
             {isLoading && <Loader size={16} />}
-
+        
             <SearchResultList
               word={searchValue}
               results={searchData}
@@ -97,6 +95,7 @@ export const Header = ({ genres }: Props) => {
             />
 
             {isLoading && <Loader size={16} />}
+       
 
             <button
               onClick={() => {
@@ -108,7 +107,6 @@ export const Header = ({ genres }: Props) => {
             >
               <X size={20} />
             </button>
-
             <SearchResultList
               word={searchValue}
               results={searchData}
@@ -118,7 +116,6 @@ export const Header = ({ genres }: Props) => {
               }}
             />
           </div>
-
           {mobileGenreOpen && (
             <div className="mt-3">
               <GenresDropdown genres={genres} />

@@ -32,19 +32,14 @@ export default async function Team({ id }: Props) {
 
   return (
     <div className="mt-8 space-y-4">
-      {/* Director */}
       <div className="grid grid-cols-[120px_1fr] border-b pb-2 border-[#E4E4E7]">
         <p className="font-bold">Director</p>
         <p>{directors.map((d: any) => d.name).join(" · ")}</p>
       </div>
-
-      {/* Writers */}
       <div className="grid grid-cols-[120px_1fr] border-b pb-2 border-[#E4E4E7]">
         <p className="font-bold">Writers</p>
         <p>{writers.join(" · ")}</p>
       </div>
-
-      {/* Stars */}
       <div className="grid grid-cols-[120px_1fr] border-b pb-2 border-[#E4E4E7]">
         <p className="font-bold">Stars</p>
         <p>{actors.join(" · ")}</p>

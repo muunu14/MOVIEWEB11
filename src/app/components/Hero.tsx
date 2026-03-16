@@ -1,8 +1,7 @@
-// "use client";
+
 import { nowPalying } from "../page";
 
 import { CarouselComponent } from "./CarouselComponent";
-// import { useState } from "react";
 
 const fetchfromNowPlayingMovieDB = async () => {
   const response = await fetch(
@@ -22,7 +21,6 @@ const fetchfromNowPlayingMovieDB = async () => {
 type Params = {
   movie: number;
 };
-// const [handleClick, setHandleClick] = useState(true);
 export const Hero = async ({ movie }: Params) => {
   const nowPlayingMovie: nowPalying[] = await fetchfromNowPlayingMovieDB();
   return <CarouselComponent nowPlayingMovie={nowPlayingMovie} />;

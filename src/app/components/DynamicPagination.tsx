@@ -43,10 +43,6 @@ export const DynamicPagination = ({ totalPages }: DynamicPaginationProps) => {
             </PaginationLink>
           </PaginationItem>
         ))}
-
-        {/* <PaginationItem>
-          <PaginationEllipsis />
-        </PaginationItem> */}
         {currentPage < 9 && (
           <PaginationItem>
             <PaginationEllipsis />

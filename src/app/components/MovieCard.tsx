@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { WatchTrailerButton } from "./TrailerButton";
 import { BsCaretRight } from "react-icons/bs";
-// import { movies } from "../data/movies";
+
 type Movie = {
   id: number;
   title: string;

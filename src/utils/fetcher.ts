@@ -2,7 +2,7 @@ export const fetchedUtils = async (endPoint: string) => {
   const response = await fetch(endPoint, {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_TOKEN_KEY}`,
     },
     cache: "force-cache",
   });
